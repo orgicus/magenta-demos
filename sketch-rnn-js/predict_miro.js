@@ -643,7 +643,7 @@ var sketch = function( p ) {
             p.current_rnn_line.push([model_x, model_y],[model_x+model_dx, model_y+model_dy]);
           }else{
             //rnn path completed, append it to the rnn drawing and reset
-            p.rnn_lines.push([].concat(p.current_rnn_line));
+            p.rnn_lines.push([].concat(DataTool.simplify_line(p.current_rnn_line)));
             p.current_rnn_line.length = 0;
           }
 
