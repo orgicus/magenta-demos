@@ -42,7 +42,7 @@ var mirobot_draw_json = function(doc,mirobot){
         }
         
         mirobot.penup();
-        mirobot.beep();
+        // mirobot.beep();
     }
     function flattenDoc(doc){
     	var newDoc = JSON.parse(JSON.stringify(doc));

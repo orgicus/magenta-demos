@@ -302,6 +302,9 @@ var sketch = function( p ) {
 
   var title_text = "sketch-rnn predictor.";
 
+  // Mirobot setup
+  p.miro = new Mirobot("ws://192.168.4.1:8899/websocket");
+
   var set_title_text = function(new_text) {
     title_text = new_text.split('_').join(' ');
     text_title.html(title_text);
@@ -665,7 +668,7 @@ var sketch = function( p ) {
 
   var draw_copy = function(){
     p.push();
-    p.translate(400,0);
+    p.translate(200,0);
     p.stroke(0,192,0);
     draw_lines(p.user_lines);
 //     draw_lines(p.rnn_lines);
@@ -752,6 +755,9 @@ var sketch = function( p ) {
     } catch (err) {
       console.log('Oops, unable to copy');
     }
+
+    mirobot_draw_json(p.linesToJSON(),p.miro);
+
   }
 
   var reset_button_event = function() {
